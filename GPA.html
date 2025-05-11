@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="yL2H_haKyZiGnYrcBNVRq_Flf_pvI0QrgY-9eWMhSDM" /> <!--مشرفي-->
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="icon" href="IMG/Nashama.webp">
+  <link rel="stylesheet" href="GPA.css">
+</head>
+
+<body>
+  <div class="container">
+    <!-- قسم اختيار الفصل الأول -->
+    <label><i class="fas fa-calendar-alt"></i> هل هذا فصلك الأول؟</label>
+    <div class="button-group" id="isFirstSemester">
+      <button class="option-button selected" data-value="yes">نعم</button>
+      <button class="option-button" data-value="no">لا</button>
+    </div>
+
+    <!-- يظهر فقط إذا كانت الإجابة لا -->
+    <div id="studentStatusSection" class="hidden">
+      <label><i class="fas fa-user-check"></i> وضع الطالب</label>
+      <div class="button-group" id="studentStatus">
+        <button class="option-button selected" data-value="دراسة منتظمة">دراسة منتظمة</button>
+        <button class="option-button" data-value="إنذار أول">إنذار أول</button>
+        <button class="option-button" data-value="إنذار نهائي">إنذار نهائي</button>
+        <button class="option-button" data-value="دراسة خاصة 1">دراسة خاصة 1</button>
+        <button class="option-button" data-value="دراسة خاصة 2">دراسة خاصة 2</button>
+        <button class="option-button" data-value="دراسة خاصة 3">دراسة خاصة 3</button>
+      </div>
+
+      <label><i class="fas fa-calendar-week"></i> نوع الفصل</label>
+      <div class="button-group" id="semesterType">
+        <button class="option-button selected" data-value="نظامي">نظامي</button>
+        <button class="option-button" data-value="صيفي">صيفي</button>
+      </div>
+
+      <label><i class="fas fa-user-graduate"></i> هل هذا تخصصك الأول في الجامعة الاردنية؟</label>
+      <div class="button-group" id="isFirstMajor">
+        <button class="option-button selected" data-value="yes">نعم</button>
+        <button class="option-button" data-value="no">لا</button>
+      </div>
+    </div>
+
+    <!-- قسم إدخال المعدل التراكمي القديم -->
+    <div id="previousDataSection" class="hidden">
+      <label for="previousGPA"><i class="fas fa-chart-line"></i> المعدل التراكمي </label>
+      <input type="number" id="previousGPA" step="0.01" min="0.50" max="2.00" placeholder="يرجى أدخل المعدل التراكمي">
+
+      <label for="previousHours"><i class="fas fa-clock"></i>الساعات التراكمية</label>
+      <input type="number" id="previousHours" step="1" min="1" placeholder="يرجى أدخل عدد الساعات التراكمي">
+    </div>
+
+    <!-- قسم اختيار عدد المواد -->
+    <label><i class="fas fa-book"></i>عدد المواد</label>
+    <div class="button-group" id="courseCount">
+      <button class="option-button" data-value="1">1</button>
+      <button class="option-button" data-value="2">2</button>
+      <button class="option-button" data-value="3">3</button>
+      <button class="option-button selected" data-value="4">4</button>
+      <button class="option-button" data-value="5">5</button>
+      <button class="option-button" data-value="6">6</button>
+      <button class="option-button" data-value="7">7</button>
+    </div>
+
+    <!-- قسم المواد -->
+    <section id="coursesContainer"></section>
+
+    <!-- أزرار الحساب وإعادة الضبط -->
+    <section>
+      <button id="calculateButton">احسب المعدل</button>
+    </section>
+
+    <section>
+      <button id="resetButton" class="hidden">حساب معدل جديد</button>
+    </section>
+
+    <!-- قسم عرض النتائج -->
+    <section id="resultSection" class="hidden result"></section>
+  </div>
+
+  <script src="GPA.js"></script>
+</body>
+
+</html>
